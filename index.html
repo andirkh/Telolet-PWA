@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<link rel="apple-touch-icon" sizes="57x57" href="./images/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./images/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./images/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./images/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./images/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./images/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./images/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./images/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="./images/android-icon-192x192.png">
+<!-- 	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png"> -->
+	<link rel="manifest" href="./manifest.json">
+	<meta name="msapplication-TileColor" content="#1A1A1A">
+	<meta name="msapplication-TileImage" content="./images/ms-icon-144x144.png">
+	<meta name="theme-color" content="#1A1A1A">
+
+	<title>OM Telolet OM</title>
+	<style>
+		html{
+			background-color:#1a1a1a;
+			text-align:center;
+		}
+
+		.teloletButton {
+			outline:none;
+			font-size:60px;
+			width:250px;
+			height:250px;
+			border-radius:400px;
+			background-color:red;
+			color:white;
+			
+			border:8px solid #b9b1b1;
+			
+			left: 50%;
+			top: 50%;
+			margin-top: -125px;   /* = -height / 2   */
+			margin-left: -125px; /* = -width / 2    */
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+	<audio id="myAudio">
+	 <source src="#"
+	         type='audio/ogg; codecs=vorbis' id="teloletAudio">
+	</audio>
+	<button type="button" onclick="aud_play_pause()" class="teloletButton">OM</button>
+	<script src="./scripts/jquery-3.1.1.min.js" ></script>
+	<script>
+	function aud_play_pause() {
+	  	var myAudio = document.getElementById("myAudio");
+	 	
+		var sounds = ['./sounds/1.ogg', 
+		'./sounds/2.ogg', 
+		'./sounds/3.ogg', 
+		'./sounds/4.ogg', 
+		'./sounds/5.ogg', 
+		'./sounds/6.ogg', 
+		'./sounds/7.ogg', 
+		'./sounds/8.ogg', 
+		'./sounds/9.ogg', 
+		'./sounds/10.ogg',
+		'./sounds/11.ogg', 
+		'./sounds/12.ogg', 
+		'./sounds/13.ogg', 
+		'./sounds/14.ogg', 
+		'./sounds/15.ogg', 
+		'./sounds/16.ogg', 
+		'./sounds/17.ogg', 
+		'./sounds/18.ogg', 
+		'./sounds/19.ogg', 
+		'./sounds/20.ogg',
+		'./sounds/31.ogg', 
+		'./sounds/32.ogg', 
+		'./sounds/33.ogg', 
+		'./sounds/34.ogg', 
+		'./sounds/35.ogg', 
+		'./sounds/36.ogg', 
+		'./sounds/37.ogg', 
+		'./sounds/38.ogg', 
+		'./sounds/39.ogg', 
+		'./sounds/40.ogg',
+		'./sounds/41.ogg', 
+		'./sounds/42.ogg', 
+		'./sounds/43.ogg', 
+		'./sounds/44.ogg', 
+		'./sounds/45.ogg', 
+		'./sounds/46.ogg', 
+		'./sounds/47.ogg', 
+		'./sounds/48.ogg', 
+		'./sounds/49.ogg', 
+		'./sounds/50.ogg',
+		'./sounds/51.ogg', 
+		'./sounds/52.ogg', 
+		'./sounds/53.ogg', 
+		'./sounds/54.ogg', 
+		'./sounds/55.ogg', 
+		'./sounds/56.ogg', 
+		'./sounds/57.ogg', 
+		'./sounds/58.ogg', 
+		'./sounds/59.ogg', 
+		'./sounds/60.ogg',
+		'./sounds/61.ogg', 
+		'./sounds/62.ogg', 
+		'./sounds/63.ogg', 
+		'./sounds/64.ogg', 
+		'./sounds/65.ogg', 
+		'./sounds/66.ogg', 
+		'./sounds/67.ogg', 
+		'./sounds/68.ogg', 
+		'./sounds/69.ogg', 
+		'./sounds/70.ogg',
+		'./sounds/71.ogg', 
+		'./sounds/72.ogg'];
+		var audioSrc = sounds[Math.floor(Math.random() * sounds.length)];
+		$('#teloletAudio').attr('src', audioSrc);
+		myAudio.load();
+		myAudio.play();
+	}
+	if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js', { scope: '/' })
+          .then(function(registration) {
+                console.log('Service Worker Registered');
+          });
+        navigator.serviceWorker.ready.then(function(registration) {
+           console.log('Service Worker Ready');
+        })
+    }
+	</script>
+</body>
+</html>
