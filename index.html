@@ -17,9 +17,7 @@
 	<link rel="apple-touch-icon" sizes="152x152" href="./images/apple-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-icon-180x180.png">
 	<link rel="icon" type="image/png" sizes="192x192"  href="./images/android-icon-192x192.png">
-<!-- 	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png"> -->
+
 	<link rel="manifest" href="./manifest.json">
 	<meta name="msapplication-TileColor" content="#1A1A1A">
 	<meta name="msapplication-TileImage" content="./images/ms-icon-144x144.png">
@@ -41,7 +39,8 @@
 			background-color:red;
 			color:white;
 			
-			border:8px solid #b9b1b1;
+			border:none;
+			box-shadow: 0 9px #666;
 			
 			left: 50%;
 			top: 50%;
@@ -49,6 +48,17 @@
 			margin-left: -125px; /* = -width / 2    */
 			position: fixed;
 		}
+		
+		.teloletButton:hover {
+			background-color: #d10000;
+		}
+
+		.teloletButton:active {
+			background-color: #d10000;
+			transform: translateY(4px);
+			box-shadow: 0 4px #444;
+		}
+
 	</style>
 </head>
 <body>
@@ -132,10 +142,10 @@
 	if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js', { scope: '/' })
           .then(function(registration) {
-                console.log('Service Worker Registered');
+                console.log('Service Worker masuk');
           });
         navigator.serviceWorker.ready.then(function(registration) {
-           console.log('Service Worker Ready');
+           console.log('Service Worker siap');
         })
     }
 	</script>
